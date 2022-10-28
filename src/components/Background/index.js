@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import LoginForm from "../AuthForm";
+import AuthForm from "../AuthForm";
 
 const Background = () => {
   return (
@@ -34,7 +35,7 @@ c-22.4,3-38.4,9.2-47.8,18.3c-11.2,10.9-13.6,26.7-16.3,45c-3.1,20.8-6.6,44.4-25.3
             />
           </g>
         </svg> */}
-        <LoginForm />
+        <AuthForm />
       </div>
 
       <div>

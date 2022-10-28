@@ -75,3 +75,13 @@
   text-align: left;
   padding: 0px 40px;
 }
+
+.createAcc{
+    text-decoration: none;
+    color: darkkhaki;
+    font-weight: 700;
+}
+
+.paperi {
+    /* display: flex; */
+}
