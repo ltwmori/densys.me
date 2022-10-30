@@ -1671,6 +1671,13 @@
     "@mantine/utils" "5.6.3"
     react-dropzone "14.2.3"
 
+"@mantine/ds@^5.6.3":
+  version "5.6.3"
+  resolved "https://registry.yarnpkg.com/@mantine/ds/-/ds-5.6.3.tgz#090c7b51c86f5461e34bbf6b2fb85d492693642b"
+  integrity sha512-S0D+1nWyCGn4F+C2KKFsFG3JuHKtRHzV6acEPz0n7gQt+2Tfl8wShmaxOw+0mBG1t51Y5pbI0WqfJ9c2C+i1jw==
+  dependencies:
+    "@mantine/utils" "5.6.3"
+
 "@mantine/form@^5.6.3":
   version "5.6.3"
   resolved "https://registry.yarnpkg.com/@mantine/form/-/form-5.6.3.tgz#554efbb77607de6d678fc9f60a6e7248f2aaaee5"
@@ -1698,6 +1705,14 @@
   integrity sha512-tssZLumRmu6ybj68K0QOjg35BcHnlkJy2Le/M1F/yI9uXsh+TGj6G2Tt3w4bU3Ge4k0b6Wv1UomutL47HHsO4Q==
   dependencies:
     "@mantine/utils" "5.6.3"
+
+"@mantine/prism@^5.6.3":
+  version "5.6.3"
+  resolved "https://registry.yarnpkg.com/@mantine/prism/-/prism-5.6.3.tgz#4d09643cc11103386b3f7ad4409e9a905578c4f2"
+  integrity sha512-dqBgTgQDzt5Iw2NktRKo+EesFhmhkvyumwPQHFahFsV0WjDZ5jqbRRf5vOHHuXjn7LS2JbDCok+vi2BNoZ4iZQ==
+  dependencies:
+    "@mantine/utils" "5.6.3"
+    prism-react-renderer "^1.2.1"
 
 "@mantine/styles@5.6.3":
   version "5.6.3"
@@ -1844,6 +1859,11 @@
   integrity sha512-6Tpkq+R6LOlmQb1R5NNETLG0B4YP0wc+klfXafpUCj6JGyaUc8il7/kUZ7m59rGbXGczE9Bs+iz2qloqsZBduQ==
   dependencies:
     "@babel/runtime" "^7.13.10"
+
+"@remix-run/router@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.0.2.tgz#1c17eadb2fa77f80a796ad5ea9bf108e6993ef06"
+  integrity sha512-GRSOFhJzjGN+d4sKHTMSvNeUPoZiDHWmRnXfzaxrqe7dE/Nzlc8BiMSJdLDESZlndM7jIUrZ/F4yWqVYlI0rwQ==
 
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
@@ -7562,6 +7582,11 @@ pretty-format@^29.0.0, pretty-format@^29.2.1:
     ansi-styles "^5.0.0"
     react-is "^18.0.0"
 
+prism-react-renderer@^1.2.1:
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/prism-react-renderer/-/prism-react-renderer-1.3.5.tgz#786bb69aa6f73c32ba1ee813fbe17a0115435085"
+  integrity sha512-IJ+MSwBWKG+SM3b2SUfdrhC+gu01QkV2KmRQgREThBfSQRoufqRfxfHUxpG1WcaFjP+kojcFyO9Qqtpgt3qLCg==
+
 process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
@@ -7749,7 +7774,22 @@ react-refresh@^0.11.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.11.0.tgz#77198b944733f0f1f1a90e791de4541f9f074046"
   integrity sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==
 
-react-scripts@5.0.1:
+react-router-dom@^6.4.2:
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.4.2.tgz#115b37d501d6d8ac870683694978c51c43e6c0d2"
+  integrity sha512-yM1kjoTkpfjgczPrcyWrp+OuQMyB1WleICiiGfstnQYo/S8hPEEnVjr/RdmlH6yKK4Tnj1UGXFSa7uwAtmDoLQ==
+  dependencies:
+    "@remix-run/router" "1.0.2"
+    react-router "6.4.2"
+
+react-router@6.4.2:
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.4.2.tgz#300628ee9ed81b8ef1597b5cb98b474efe9779b8"
+  integrity sha512-Rb0BAX9KHhVzT1OKhMvCDMw776aTYM0DtkxqUBP8dNBom3mPXlfNs76JNGK8wKJ1IZEY1+WGj+cvZxHVk/GiKw==
+  dependencies:
+    "@remix-run/router" "1.0.2"
+
+react-scripts@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-5.0.1.tgz#6285dbd65a8ba6e49ca8d651ce30645a6d980003"
   integrity sha512-8VAmEm/ZAwQzJ+GOMLbBsTdDKOpuZh7RPs0UymvBR2vRk4iZWCskjbFnxqjrzoIvlNNRZ3QJFx6/qDSi6zSnaQ==
