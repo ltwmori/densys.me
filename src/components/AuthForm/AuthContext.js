@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
   );
   const [loading, setLoading] = useState(true);
 
-  const history = useHistory();
+  const history = useNavigate();
 
   const loginUser = async (username, password) => {
     const response = await fetch("http://127.0.0.1:8000/auth/login/", {
@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
   };
   
   const registerUser = async (username, password, password2) => {
-    const response = await fetch("http://127.0.0.1:8000/api/register/", {
+    const response = await fetch("http://127.0.0.1:8000/auth/register/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
