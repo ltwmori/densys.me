@@ -30,6 +30,7 @@ import {
   IconChevronDown,
   IconSearch,
 } from "@tabler/icons";
+import { Link } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -261,8 +262,12 @@ export function MyHeader() {
           />
 
           <Group className={classes.hiddenMobile}>
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
+            <Button 
+              variant="default" 
+              component={Link} to="/">
+                Log in
+            </Button>
+            <Button component={Link} to="/sign-up">Sign up</Button>
           </Group>
 
           <Burger
@@ -314,7 +319,7 @@ export function MyHeader() {
 
           <Group position="center" grow pb="xl" px="md">
             <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
+            <Button component={Link} to="/sign-up">Sign up</Button>
           </Group>
         </ScrollArea>
       </Drawer>

@@ -163,7 +163,7 @@ const RegisterDoctor = () => {
         // style={{border:"solid",display:"flex",flexDirection:"row"}}
         >
         {/* <div style={{width:"25%",border:"solid"}}> */}
-        <Navbar height={1350} width={{ sm: 300 }}>
+        <Navbar height={1450} width={{ sm: 300 }}>
             <Navbar.Section grow className={classes.wrapper}>
                 <div className={classes.aside}>
                     {mainLinks}

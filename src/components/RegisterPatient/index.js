@@ -159,7 +159,7 @@ const RegisterPatient = () => {
 
     return (
       <div className='container-d' >
-        <Navbar height={1050} width={{ sm: 300 }}>
+        <Navbar height={1100} width={{ sm: 300 }}>
             <Navbar.Section grow className={classes.wrapper}>
                 <div className={classes.aside}>
                     {mainLinks}

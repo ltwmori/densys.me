@@ -21,6 +21,7 @@ import {
   IconPencil,
   IconSearch,
   IconDots,
+  IconEye,
 } from '@tabler/icons';
 
 const data = [
@@ -205,21 +206,27 @@ const SearchPatient = () => {
           <ActionIcon>
             <IconPencil size={16} stroke={1.5} />
           </ActionIcon>
-          <Menu transition="pop" withArrow position="bottom-end">
+          <ActionIcon>
+              <IconEye size={16} stroke={1.5} onClick={console.log("hi")}/>
+          </ActionIcon>
+          {/* <Menu transition="pop" withArrow position="bottom-end">
             <Menu.Target>
               <ActionIcon>
                 <IconDots size={16} stroke={1.5} />
               </ActionIcon>
             </Menu.Target>
-            <Menu.Dropdown>
-              <Menu.Item icon={<IconSearch size={16} stroke={1.5} />}>See profile</Menu.Item>
+            <Menu.Target>
+              
+            </Menu.Target> */}
+            {/* <Menu.Dropdown> */}
+              {/* <Menu.Item icon={<IconSearch size={16} stroke={1.5} />}>See profile</Menu.Item> */}
               {/* <Menu.Item icon={<IconNote size={16} stroke={1.5} />}>Add note</Menu.Item>
               <Menu.Item icon={<IconReportAnalytics size={16} stroke={1.5} />}>Analytics</Menu.Item>
               <Menu.Item icon={<IconTrash size={16} stroke={1.5} />} color="red">
                 Terminate contract
               </Menu.Item> */}
-            </Menu.Dropdown>
-          </Menu>
+            {/* </Menu.Dropdown> */}
+          {/* </Menu> */}
         </Group>
       </td>
     </tr>

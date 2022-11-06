@@ -7,6 +7,7 @@ import SearchPatient from "./components/SearchPatient";
 import SearchDoctor from "./components/SearchDoctor";
 import RegisterPatient from "./components/RegisterPatient";
 import RegisterDoctor from "./components/RegisterDoctor";
+import SignUp from "./components/SignupForm";
 import {Route, Routes} from 'react-router-dom';
 import React from 'react';
 
@@ -20,6 +21,7 @@ function App() {
         <main>
         <Routes>
           <Route path="/" element={<Background/>} exact/>
+          <Route path="/sign-up" element={<SignUp/>} exact/>
           <Route path="/admin" element={<AdminPage/>} exact/>
           <Route path="/admin/search-patient" element={<SearchPatient/>} exact/>
           <Route path="/admin/search-doctor" element={<SearchDoctor/>} exact/>
