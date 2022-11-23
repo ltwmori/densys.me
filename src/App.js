@@ -1,52 +1,36 @@
 // import LoginForm from "./components/AuthForm";
 import Background from "./components/Background";
-import LoginForm from "./components/AuthForm";
+// import LoginForm from "./components/AuthForm";
 import MyHeader from "./components/Header";
-import MainPage from "./pages/MainPage";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Auth from "./pages/Auth";
-import Contacts from "./pages/Contacts";
-import About from "./pages/About";
+import AdminPage from "./components/AdminPage";
+import SearchPatient from "./components/SearchPatient";
+import SearchDoctor from "./components/SearchDoctor";
+import RegisterPatient from "./components/RegisterPatient";
+import RegisterDoctor from "./components/RegisterDoctor";
+import SignUp from "./components/SignupForm";
+import {Route, Routes} from 'react-router-dom';
+import React from 'react';
+
 function App() {
   return (
-    <>
-      <Router>
-       
-          <Routes>
-            {/* Dashboard Routes */}
-            <Route path="/main" element={<MainPage />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contacts" element={<Contacts />} />
-            <Route path="/auth" element={<Auth />} />
-            {/* <Route path="/" element={<Dashboard />} />
-            <Route path="/problems" element={<AllProblems />} /> */}
-
-            {/* Authentication Routes */}
-            {/* <Route
-              path="/auth"
-              element={
-                <AuthNotAllowed>
-                  <Authentication />
-                </AuthNotAllowed>
-              }
-            />
-            <Route
-              path="/reset-password"
-              element={
-                <AuthNotAllowed>
-                  <ResetPassword />
-                </AuthNotAllowed>
-              }
-            />
-            <Route
-              path="/reset-password/change"
-              element={<ResetPasswordChange />}
-            />
-            <Route path="/confirm-email/:key" element={<ConfirmEmail />} /> */}
-          </Routes>
-       
-      </Router>
-    </>
+    <div className="App">
+      <React.Fragment>
+        <header>
+          <MyHeader/>
+        </header>
+        <main>
+        <Routes>
+          <Route path="/" element={<Background/>} exact/>
+          <Route path="/sign-up" element={<SignUp/>} exact/>
+          <Route path="/admin" element={<AdminPage/>} exact/>
+          <Route path="/admin/search-patient" element={<SearchPatient/>} exact/>
+          <Route path="/admin/search-doctor" element={<SearchDoctor/>} exact/>
+          <Route path="/admin/register-patient" element={<RegisterPatient/>} exact/>
+          <Route path="/admin/register-doctor" element={<RegisterDoctor/>} exact/>
+        </Routes>
+        </main>
+      </React.Fragment>
+    </div>
   );
 }
 

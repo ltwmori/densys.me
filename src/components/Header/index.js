@@ -262,8 +262,13 @@ export function MyHeader() {
           />
 
           <Group className={classes.hiddenMobile}>
-          <Button variant="default" component={Link} to="/auth">Log in</Button>
-            <Button component={Link} to="/auth">Sign up</Button>
+
+            <Button 
+              variant="default" 
+              component={Link} to="/">
+                Log in
+            </Button>
+            <Button component={Link} to="/sign-up">Sign up</Button>
           </Group>
 
           <Burger
@@ -316,6 +321,7 @@ export function MyHeader() {
           <Group position="center" grow pb="xl" px="md">
             <Button variant="default" component={Link} to="/react-router">Log in</Button>
             <Button>Sign up</Button>
+
           </Group>
         </ScrollArea>
       </Drawer>

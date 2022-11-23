@@ -12,10 +12,21 @@ import {
 } from "@mantine/core";
 import RadioButton from "../RadioButtons";
 import './index.css';
+import AuthContext from "./AuthContext.js";
+import { useNavigate } from "react-router-dom";
 
 const AuthForm = () => {
+  const { loginUser } = useNavigate(AuthContext);
+  const handleSubmit = e => {
+    e.preventDefault();
+    const username = e.target.username.value;
+    const password = e.target.password.value;
+    username.length > 0 && loginUser(username, password);
+  };
+
   return (
-    <>
+    <section>
+    <form onSubmit={handleSubmit}>
       <Container size={420} my={40}>
         <Title
           align="center"
@@ -29,14 +40,14 @@ const AuthForm = () => {
 
         <Text color="white" size="sm" align="center" mt={5}>
           Do not have an account yet?{" "}
-          <a color="white" href="/" className="createAcc">Create Account</a>
+          <a color="white" href="/sign-up" className="createAcc">Create Account</a>
         </Text>
 
         <Paper withBorder shadow="md" p={30} mt={30} radius="md">
           <RadioButton />
-          <TextInput label="Email" placeholder="you@mantine.dev" className="paperi" required />
+          <TextInput label="username" placeholder="Johny" className="paperi" required />
           <PasswordInput
-            label="Password"
+            label="password"
             placeholder="Your password"
             required
             // className="paperi"
@@ -53,7 +64,8 @@ const AuthForm = () => {
           </Button>
         </Paper>
       </Container>
-    </>
+    </form>
+    </section>
   );
 };
 
