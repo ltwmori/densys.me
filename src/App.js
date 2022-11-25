@@ -11,9 +11,12 @@ import SignUp from "./components/SignupForm";
 import { Route, Routes } from "react-router-dom";
 import React from "react";
 import MainPage from "./pages/MainPage";
-import AdminPg from "./components/Navbar/Appshell";
+import {AdminPg, PatientPg} from "./components/Navbar/Appshell";
 import AdminPatients from "./pages/AdminPatients";
 import Appoinments from "./pages/Appoinments";
+import MakeAppoinments from "./pages/MakeAppointments";
+import PatientPersonal from "./pages/PatientPersonal";
+import Specialization from "./pages/Specialization";
 
 function App() {
   return (
@@ -32,6 +35,11 @@ function App() {
               <Route path="/admin/patients" element={<AdminPatients />} exact />
               <Route path="/admin/doctors" element={<AdminPatients />} exact />
               <Route path="/admin/appoinments" element={<Appoinments />} exact />
+            </Route>
+            <Route path="/patient" element={<PatientPg />} exact >
+              <Route path="/patient" element={<PatientPersonal />} exact />  
+              <Route path="/patient/makeappointment" element={<MakeAppoinments />} exact />
+              <Route path="/patient/specialization" element={<Specialization />} exact />
             </Route>
             <Route
               path="/admin/search-patient"

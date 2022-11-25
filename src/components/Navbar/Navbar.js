@@ -142,6 +142,11 @@ const mainLinksMockdata = [
   { icon: IconCalendar, label: "Appoinments", link: "../admin/appoinments" },
 ];
 
+const mainLinksMockdata2 = [
+  { icon: IconHome2, label: "Home", link: "../patient" },
+  { icon: IconCalendar, label: "Appoinments", link: "../patient/makeappointment" },
+];
+
 const linksMockdataPatient = ["Add a patient", "Search patients"];
 
 const linksMockdataDoctors = [
@@ -150,7 +155,11 @@ const linksMockdataDoctors = [
   "Display work schedule",
 ];
 const linksDataAppoinments = ["Requests from patients", "Add a new appoinment"];
+
+const linksDataAppoinments2 = ["Make an appointment", "View doctor specializations"];
+
 const linksDataHome = ["Dashboard"];
+
 const DoubleNavbar = () => {
   const { classes, cx } = useStyles();
   const [active, setActive] = useState("Home");
@@ -268,4 +277,85 @@ const DoubleNavbar = () => {
   );
 };
 
-export default DoubleNavbar;
+const DoubleNavbar2 = () => {
+  const { classes, cx } = useStyles();
+  const [active, setActive] = useState("Home");
+  const [activeLinkAppoinment, setActiveLinkAppoinment] = useState(
+    "Make an appointment"
+  );
+  const [activeLinkHome, setActiveHome] = useState("Dashboard");
+  // const pathUpdate = item => pathname.split("/")[2] !== undefined ? item : pathname + "/" + item;
+
+  const mainLinks = mainLinksMockdata2.map((link) => (
+    <Tooltip
+      label={link.label}
+      position="right"
+      withArrow
+      transitionDuration={0}
+      key={link.label}
+    >
+      <Link to={link.link}>
+        <UnstyledButton
+          onClick={() => setActive(link.label)}
+          className={cx(classes.mainLink, {
+            [classes.mainLinkActive]: link.label === active,
+          })}
+        >
+          <link.icon stroke={1.5} />
+        </UnstyledButton>
+      </Link>
+    </Tooltip>
+  ));
+
+  const linksAppoinments = linksDataAppoinments2.map((link) => (
+    <a
+      className={cx(classes.link, {
+        [classes.linkActive]: activeLinkAppoinment === link,
+      })}
+      href="/"
+      onClick={(event) => {
+        event.preventDefault();
+        setActiveLinkAppoinment(link);
+      }}
+      key={link}
+    >
+      {link}
+    </a>
+  ));
+
+  const linksHome = linksDataHome.map((link) => (
+    <a
+      className={cx(classes.link, {
+        [classes.linkActive]: activeLinkHome === link,
+      })}
+      href="/"
+      onClick={(event) => {
+        event.preventDefault();
+        setActiveHome(link);
+      }}
+      key={link}
+    >
+      {link}
+    </a>
+  ));
+
+  return (
+    <Navbar height={750} width={{ sm: 300 }}>
+      <Navbar.Section grow className={classes.wrapper}>
+        <div className={classes.aside}>
+          {mainLinks}
+        </div>
+        <div className={classes.main}>
+          <Title order={4} className={classes.title}>
+            {active}
+          </Title>
+          {active === "Appoinments" && linksAppoinments}
+          {active == "Home" && linksHome}
+          {/* {linksPatient} */}
+        </div>
+      </Navbar.Section>
+    </Navbar>
+  );
+};
+
+export {DoubleNavbar, DoubleNavbar2};
