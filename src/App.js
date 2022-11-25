@@ -8,26 +8,52 @@ import SearchDoctor from "./components/SearchDoctor";
 import RegisterPatient from "./components/RegisterPatient";
 import RegisterDoctor from "./components/RegisterDoctor";
 import SignUp from "./components/SignupForm";
-import {Route, Routes} from 'react-router-dom';
-import React from 'react';
+import { Route, Routes } from "react-router-dom";
+import React from "react";
+import MainPage from "./pages/MainPage";
+import AdminPg from "./components/Navbar/Appshell";
+import AdminPatients from "./pages/AdminPatients";
+import Appoinments from "./pages/Appoinments";
 
 function App() {
   return (
     <div className="App">
       <React.Fragment>
         <header>
-          <MyHeader/>
+          <MyHeader />
         </header>
         <main>
-        <Routes>
-          <Route path="/" element={<Background/>} exact/>
-          <Route path="/sign-up" element={<SignUp/>} exact/>
-          <Route path="/admin" element={<AdminPage/>} exact/>
-          <Route path="/admin/search-patient" element={<SearchPatient/>} exact/>
-          <Route path="/admin/search-doctor" element={<SearchDoctor/>} exact/>
-          <Route path="/admin/register-patient" element={<RegisterPatient/>} exact/>
-          <Route path="/admin/register-doctor" element={<RegisterDoctor/>} exact/>
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Background />} exact />
+            <Route path="/home" element={<MainPage />} exact />
+            <Route path="/sign-up" element={<SignUp />} exact />
+            <Route path="/admin" element={<AdminPg />} exact >
+              <Route path="/admin" element={<AdminPatients />} exact />  
+              <Route path="/admin/patients" element={<AdminPatients />} exact />
+              <Route path="/admin/doctors" element={<AdminPatients />} exact />
+              <Route path="/admin/appoinments" element={<Appoinments />} exact />
+            </Route>
+            <Route
+              path="/admin/search-patient"
+              element={<SearchPatient />}
+              exact
+            />
+            <Route
+              path="/admin/search-doctor"
+              element={<SearchDoctor />}
+              exact
+            />
+            <Route
+              path="/admin/register-patient"
+              element={<RegisterPatient />}
+              exact
+            />
+            <Route
+              path="/admin/register-doctor"
+              element={<RegisterDoctor />}
+              exact
+            />
+          </Routes>
         </main>
       </React.Fragment>
     </div>

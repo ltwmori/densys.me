@@ -134,8 +134,9 @@ const MainPage = () => {
   ));
   return (
     <div className={classes.wrapper}>
-      <MyHeader />
+      {/* <MyHeader /> */}
       {/* <video src={videoBg} autoPlay loop muted/> */}
+      
       <Container size={1000} className={classes.inner}>
         <h1 className={classes.title}>
           DenSys.Me — the{" "}
@@ -160,6 +161,7 @@ const MainPage = () => {
             className={classes.control}
             variant="gradient"
             gradient={{ from: "blue", to: "cyan" }}
+            href="/auth"
           >
             Make an appoinment
           </Button>

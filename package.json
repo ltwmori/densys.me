@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
-    "@mantine/core": "^5.6.3",
+    "@mantine/core": "^5.8.3",
     "@mantine/dates": "^5.6.3",
     "@mantine/dropzone": "^5.6.3",
     "@mantine/ds": "^5.6.3",
@@ -23,8 +23,6 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2",
     "react-scripts": "^5.0.1",
-    "react-router-dom": "^6.4.2",
-    "react-scripts": "5.0.1",
     "web-vitals": "^2.1.0"
   },
   "scripts": {

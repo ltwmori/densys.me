@@ -30,7 +30,7 @@ import {
   IconChevronDown,
   IconSearch,
 } from "@tabler/icons";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -182,7 +182,7 @@ export function MyHeader() {
             spacing={0}
             className={classes.hiddenMobile}
           >
-            <Link to="/main" className={classes.link}>
+            <Link to="/home" className={classes.link}>
               Home
             </Link>
             <HoverCard
@@ -262,13 +262,12 @@ export function MyHeader() {
           />
 
           <Group className={classes.hiddenMobile}>
-
-            <Button 
-              variant="default" 
-              component={Link} to="/">
-                Log in
+            <Button variant="default" component={Link} to="/">
+              Log in
             </Button>
-            <Button component={Link} to="/sign-up">Sign up</Button>
+            <Button component={Link} to="/sign-up">
+              Sign up
+            </Button>
           </Group>
 
           <Burger
@@ -294,7 +293,7 @@ export function MyHeader() {
             color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
           />
 
-          <Link to="/main" className={classes.link}>
+          <Link to="/home" className={classes.link}>
             Home
           </Link>
           <UnstyledButton className={classes.link} onClick={toggleLinks}>
@@ -319,9 +318,10 @@ export function MyHeader() {
           />
 
           <Group position="center" grow pb="xl" px="md">
-            <Button variant="default" component={Link} to="/react-router">Log in</Button>
+            <Button variant="default" component={Link} to="/react-router">
+              Log in
+            </Button>
             <Button>Sign up</Button>
-
           </Group>
         </ScrollArea>
       </Drawer>
