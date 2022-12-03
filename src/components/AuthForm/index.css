@@ -78,10 +78,8 @@
 
 .createAcc{
     text-decoration: none;
-    color: darkkhaki;
-    font-weight: 700;
+    color: #fff;
+    font-weight: 900;
+    cursor: pointer;
 }
 
-/*.paperi {
-    /* display: flex; 
-}*/
