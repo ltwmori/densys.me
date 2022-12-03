@@ -1,7 +1,7 @@
 import React from "react";
 
 const Specialization = () => {
-  return <div>AdminPatients</div>;
+  return <div>Specialization</div>;
 };
 
 export default Specialization;

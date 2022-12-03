@@ -115,6 +115,63 @@ const mockdata = [
           }
           ],
       },
+      {
+        id: "6",
+        name: "Asset Kasym",
+        specialization: "Pediatrics",
+        available_dates: [
+          {
+              date: "13/12/2021",
+              time: "10:00"
+          },
+          {
+              date: "14/12/2021",
+              time: "11:00"
+          },
+          {
+              date: "15/12/2021",
+              time: "09:00"
+          }
+          ],
+      },
+      {
+        id: "7",
+        name: "Erlan Temir",
+        specialization: "Surgery",
+        available_dates: [
+          {
+              date: "20/12/2021",
+              time: "11:00"
+          },
+          {
+              date: "12/12/2021",
+              time: "11:00"
+          },
+          {
+              date: "15/12/2021",
+              time: "09:00"
+          }
+          ],
+      },
+      {
+        id: "8",
+        name: "Assem Arlan",
+        specialization: "Cardiology",
+        available_dates: [
+          {
+              date: "20/12/2021",
+              time: "11:00"
+          },
+          {
+              date: "12/12/2021",
+              time: "11:00"
+          },
+          {
+              date: "15/12/2021",
+              time: "09:00"
+          }
+          ],
+      },
 ]
 
 const useStyles = createStyles((theme) => ({
@@ -185,15 +242,27 @@ const useStyles = createStyles((theme) => ({
 const MakeAppoinments = () => {
     const { classes, theme } = useStyles();
     const [value, setValue] = useState('');
+    const [searchValue, setSearchValue] = useState('');
     const [opened, setOpened] = useState(false);
     // const data =
     // value.trim().length > 0 && !value.includes('@')
     //   ? ['gmail.com', 'outlook.com', 'yahoo.com'].map((provider) => `${value}@${provider}`)
     //   : [];
 
-    const data = ["Yerbol Yermekov", "Alfia Akmetzhaneva"]
+    function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
+      }
 
-    const items = mockdata.map((item) => (
+    const data = mockdata.map(data => data.name).concat(mockdata.map(data => data.specialization)).filter(onlyUnique);
+    // const unique = data.filter(onlyUnique);
+
+    const items = mockdata.filter(
+        function (e) {
+            if(searchValue == '') return e;
+            return new RegExp(searchValue, 'i').test(e.name) || new RegExp(searchValue, 'i').test(e.specialization);
+    })
+    // .filter(data => new RegExp(searchValue, 'i').test(data.name))
+    .map((item) => (
         <Card shadow="sm" p="lg" radius="md" withBorder key={item.id} className={classes.item}>
           <Avatar size={40} src={item.avatar} radius={40} />
           <div className={classes.doctorinfo}>
@@ -275,16 +344,23 @@ const MakeAppoinments = () => {
         </Card>
     ));  
 
+    const handle = () => {
+        console.log(mockdata.filter(data => data.name.includes('A')))
+    }
+
     return (
         <div style={{display:'flex', flexDirection:'column',alignItems:'center'}}>
             <Autocomplete 
                 className={classes.search}
-                value={value}
-                onChange={setValue}
+                value={searchValue}
+                onChange={value => setSearchValue(value)}
                 placeholder="Enter doctor name or specialization"
                 data={data}
+
             />
+            {/* {console.log(searchValue)} */}
             {items}
+
             <Pagination
                 style={{margin:15}}
                 size="sm"
