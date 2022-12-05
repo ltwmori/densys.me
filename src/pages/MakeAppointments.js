@@ -270,9 +270,9 @@ const MakeAppoinments = () => {
                  Name: {item.name}
             </Text>
             <Text fw={500} size="xs" mb="md">
-                <a href="/patient/specialization">
+                {/* <a href="/patient/specialization"> */}
                     Specialization: {item.specialization}
-                </a>
+                {/* </a> */}
                  
             </Text>
           </div>

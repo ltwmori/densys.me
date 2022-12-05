@@ -145,9 +145,14 @@ const mainLinksMockdata = [
 const mainLinksMockdata2 = [
   { icon: IconHome2, label: "Home", link: "../patient" },
   { icon: IconCalendar, label: "Appoinments", link: "../patient/makeappointment" },
+  // { icon: IconCalendar, label: "Appoinments", link: "../patient/makeappointment" },
 ];
 
-const linksMockdataPatient = ["Add a patient", "Search patients"];
+// const linksMockdataPatient = ["Add a patient", "Search patients"];
+const linksMockdataPatient = [
+  {label: "Add a patient", link: "../admin/patients"}, 
+  {label: "Search patients", link: "../admin/search-patients"}
+]
 
 const linksMockdataDoctors = [
   "Add a doctor",
@@ -156,7 +161,7 @@ const linksMockdataDoctors = [
 ];
 const linksDataAppoinments = ["Requests from patients", "Add a new appoinment"];
 
-const linksDataAppoinments2 = ["Make an appointment", "View doctor specializations"];
+const linksDataAppoinments2 = ["Make an appointment"];
 
 const linksDataHome = ["Dashboard"];
 
@@ -193,18 +198,24 @@ const DoubleNavbar = () => {
   ));
 
   const linksPatient = linksMockdataPatient.map((link) => (
+    
     <a
       className={cx(classes.link, {
-        [classes.linkActive]: activeLinkPatient === link,
+        [classes.linkActive]: activeLinkPatient === link.label,
       })}
-      href="/"
+      href={link.link}
       onClick={(event) => {
+        console.log(link.link)
         event.preventDefault();
-        setActiveLinkPatient(link);
+        setActiveLinkPatient(link.label);
+        
+        if(link.label == "Search patients") {
+          window.location.href='/admin/search-patients';
+        }
       }}
-      key={link}
+      key={link.link}
     >
-      {link}
+      {link.label}
     </a>
   ));
 
@@ -215,8 +226,12 @@ const DoubleNavbar = () => {
       })}
       href="/"
       onClick={(event) => {
+        console.log(link.link)
         event.preventDefault();
         setActiveLinkDoctor(link);
+        if(link == "Search doctors") {
+          window.location.href='/admin/search-doctors';
+        }
       }}
       key={link}
     >

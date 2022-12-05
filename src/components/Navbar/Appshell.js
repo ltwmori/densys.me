@@ -7,6 +7,8 @@ import { useLocation } from "react-router-dom";
 import AdminPatients from "../../pages/AdminPatients";
 import RegisterPatient from "../RegisterPatient";
 import RegisterDoctor from "../RegisterDoctor";
+import SearchPatient from "../SearchPatient";
+import SearchDoctor from "../SearchDoctor";
 import MakeAppoinments from "../../pages/MakeAppointments";
 import PatientPersonal from "../../pages/PatientPersonal";
 
@@ -18,6 +20,10 @@ const ProjectIntros = ({ slug }) => {
       return <RegisterPatient />;
     case "doctors":
       return <RegisterDoctor />;
+    case "search-patients":
+      return <SearchPatient />;
+    case "search-doctors":
+      return <SearchDoctor />;
     default:
       return <AdminPatients />;
   }

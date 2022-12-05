@@ -34,14 +34,17 @@ function App() {
               <Route path="/admin" element={<AdminPatients />} exact />  
               <Route path="/admin/patients" element={<AdminPatients />} exact />
               <Route path="/admin/doctors" element={<AdminPatients />} exact />
+              <Route path="/admin/search-patients" element={<AdminPatients />} exact />
+              <Route path="/admin/search-doctors" element={<AdminPatients />} exact />
               <Route path="/admin/appoinments" element={<Appoinments />} exact />
             </Route>
             <Route path="/patient" element={<PatientPg />} exact >
               <Route path="/patient" element={<PatientPersonal />} exact />  
               <Route path="/patient/makeappointment" element={<MakeAppoinments />} exact />
-              <Route path="/patient/specialization" element={<Specialization />} exact />
+              {/* <Route path="/patient/specialization" element={<Specialization />} exact /> */}
             </Route>
-            <Route
+            {/* <Route path="/patient/specialization" element={<Specialization />} exact ></Route> */}
+            {/* <Route
               path="/admin/search-patient"
               element={<SearchPatient />}
               exact
@@ -50,7 +53,7 @@ function App() {
               path="/admin/search-doctor"
               element={<SearchDoctor />}
               exact
-            />
+            /> */}
             <Route
               path="/admin/register-patient"
               element={<RegisterPatient />}
