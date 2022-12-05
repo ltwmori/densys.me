@@ -133,29 +133,6 @@ const useStyles = createStyles((theme) => ({
       color: theme.white,
     },
   },
-<<<<<<< HEAD
-=======
-  link2: {
-    width: 50,
-    height: 50,
-    borderRadius: theme.radius.md,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
-
-    '&:hover': {
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[0],
-    },
-  },
-
-  active2: {
-    '&, &:hover': {
-      backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
-      color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
-    },
-  },
->>>>>>> 4f76df49ccc7670153255f5244a25da08930a278
 }));
 
 const mainLinksMockdata = [
@@ -166,7 +143,6 @@ const mainLinksMockdata = [
 ];
 
 const mainLinksMockdata2 = [
-<<<<<<< HEAD
   { icon: IconHome2, label: "Home", link: "../patient" },
   { icon: IconCalendar, label: "Appoinments", link: "../patient/makeappointment" },
 ];
@@ -176,19 +152,6 @@ const mainLinksMockdata2 = [
 
 
 const linksMockdataPatient = [ "Add a patient",  "Search patients"];
-=======
-  { icon: IconHome2, label: "Personal Page", link: "../patient" },
-  { icon: IconCalendar, label: "Appoinments", link: "../patient/makeappointment" },
-  // { icon: IconCalendar, label: "Appoinments", link: "../patient/makeappointment" },
-];
-
-// const linksMockdataPatient = ["Add a patient", "Search patients"];
-const linksMockdataPatient = [
-  {label: "Add a patient", link: "../admin/patients"}, 
-  {label: "Search patients", link: "../admin/search-patients"}
-]
-
->>>>>>> 4f76df49ccc7670153255f5244a25da08930a278
 const linksMockdataDoctors = [
   "Add a doctor",
   "Search doctors",
@@ -196,11 +159,7 @@ const linksMockdataDoctors = [
 ];
 const linksDataAppoinments = ["Requests from patients", "Add a new appoinment"];
 
-<<<<<<< HEAD
 const linksDataAppoinments2 = ["Make an appointment", "View doctor specializations"];
-=======
-const linksDataAppoinments2 = ["Make an appointment"];
->>>>>>> 4f76df49ccc7670153255f5244a25da08930a278
 
 const linksDataHome = ["Dashboard"];
 
@@ -237,7 +196,6 @@ const DoubleNavbar = () => {
   ));
 
   const linksPatient = linksMockdataPatient.map((link) => (
-<<<<<<< HEAD
     <a
       className={cx(classes.link, {
         [classes.linkActive]: activeLinkPatient === link,
@@ -250,26 +208,6 @@ const DoubleNavbar = () => {
       key={link}
     >
       {link}
-=======
-    
-    <a
-      className={cx(classes.link, {
-        [classes.linkActive]: activeLinkPatient === link.label,
-      })}
-      href={link.link}
-      onClick={(event) => {
-        console.log(link.link)
-        event.preventDefault();
-        setActiveLinkPatient(link.label);
-        
-        if(link.label == "Search patients") {
-          window.location.href='/admin/search-patients';
-        }
-      }}
-      key={link.link}
-    >
-      {link.label}
->>>>>>> 4f76df49ccc7670153255f5244a25da08930a278
     </a>
   ));
 
@@ -280,17 +218,8 @@ const DoubleNavbar = () => {
       })}
       href="/"
       onClick={(event) => {
-<<<<<<< HEAD
         event.preventDefault();
         setActiveLinkDoctor(link);
-=======
-        console.log(link.link)
-        event.preventDefault();
-        setActiveLinkDoctor(link);
-        if(link == "Search doctors") {
-          window.location.href='/admin/search-doctors';
-        }
->>>>>>> 4f76df49ccc7670153255f5244a25da08930a278
       }}
       key={link}
     >
@@ -414,29 +343,17 @@ const DoubleNavbar2 = () => {
   ));
 
   return (
-<<<<<<< HEAD
     <Navbar height={750} width={{ sm: 300 }}>
-=======
-    <Navbar height={750} width={{ base: 60 }} >
->>>>>>> 4f76df49ccc7670153255f5244a25da08930a278
       <Navbar.Section grow className={classes.wrapper}>
         <div className={classes.aside}>
           {mainLinks}
         </div>
         <div className={classes.main}>
-<<<<<<< HEAD
           <Title order={4} className={classes.title}>
             {active}
           </Title>
           {active === "Appoinments" && linksAppoinments}
           {active == "Home" && linksHome}
-=======
-          {/* <Title order={4} className={classes.title}>
-            {active}
-          </Title>
-          {active === "Appoinments" && linksAppoinments}
-          {active == "Home" && linksHome} */}
->>>>>>> 4f76df49ccc7670153255f5244a25da08930a278
           {/* {linksPatient} */}
         </div>
       </Navbar.Section>
@@ -444,8 +361,4 @@ const DoubleNavbar2 = () => {
   );
 };
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4f76df49ccc7670153255f5244a25da08930a278
 export {DoubleNavbar, DoubleNavbar2};

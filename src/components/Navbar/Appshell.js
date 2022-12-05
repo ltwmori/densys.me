@@ -7,11 +7,6 @@ import { useLocation } from "react-router-dom";
 import AdminPatients from "../../pages/AdminPatients";
 import RegisterPatient from "../RegisterPatient";
 import RegisterDoctor from "../RegisterDoctor";
-<<<<<<< HEAD
-=======
-import SearchPatient from "../SearchPatient";
-import SearchDoctor from "../SearchDoctor";
->>>>>>> 4f76df49ccc7670153255f5244a25da08930a278
 import MakeAppoinments from "../../pages/MakeAppointments";
 import PatientPersonal from "../../pages/PatientPersonal";
 
@@ -23,13 +18,6 @@ const ProjectIntros = ({ slug }) => {
       return <RegisterPatient />;
     case "doctors":
       return <RegisterDoctor />;
-<<<<<<< HEAD
-=======
-    case "search-patients":
-      return <SearchPatient />;
-    case "search-doctors":
-      return <SearchDoctor />;
->>>>>>> 4f76df49ccc7670153255f5244a25da08930a278
     default:
       return <AdminPatients />;
   }

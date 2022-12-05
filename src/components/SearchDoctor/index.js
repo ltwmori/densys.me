@@ -10,11 +10,7 @@ import {
   Menu,
   ScrollArea,
 } from "@mantine/core";
-<<<<<<< HEAD
 import { IconPencil, IconSearch, IconDots } from "@tabler/icons";
-=======
-import { IconPencil, IconSearch, IconEye } from "@tabler/icons";
->>>>>>> 4f76df49ccc7670153255f5244a25da08930a278
 
 const data = [
   {
@@ -76,14 +72,7 @@ const SearchDoctor = () => {
           <ActionIcon>
             <IconPencil size={16} stroke={1.5} />
           </ActionIcon>
-<<<<<<< HEAD
           <Menu transition="pop" withArrow position="bottom-end">
-=======
-          <ActionIcon>
-            <IconEye size={16} stroke={1.5} />
-          </ActionIcon>
-          {/* <Menu transition="pop" withArrow position="bottom-end">
->>>>>>> 4f76df49ccc7670153255f5244a25da08930a278
             <Menu.Target>
               <ActionIcon>
                 <IconDots size={16} stroke={1.5} />
@@ -94,11 +83,7 @@ const SearchDoctor = () => {
                 See profile
               </Menu.Item>
             </Menu.Dropdown>
-<<<<<<< HEAD
           </Menu>
-=======
-          </Menu> */}
->>>>>>> 4f76df49ccc7670153255f5244a25da08930a278
         </Group>
       </td>
     </tr>

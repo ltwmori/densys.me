@@ -1,9 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-
-const PatientPersonal = () => {
-  return <div>Patient Personal Page</div>;
-=======
 import { 
   Autocomplete,
   Card,
@@ -134,7 +129,6 @@ const PatientPersonal = () => {
       </Card>
     </div>
   );
->>>>>>> 4f76df49ccc7670153255f5244a25da08930a278
 };
 
 export default PatientPersonal;
