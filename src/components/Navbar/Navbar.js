@@ -133,6 +133,26 @@ const useStyles = createStyles((theme) => ({
       color: theme.white,
     },
   },
+  link2: {
+    width: 50,
+    height: 50,
+    borderRadius: theme.radius.md,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
+
+    '&:hover': {
+      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[0],
+    },
+  },
+
+  active2: {
+    '&, &:hover': {
+      backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
+      color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
+    },
+  },
 }));
 
 const mainLinksMockdata = [
@@ -143,7 +163,7 @@ const mainLinksMockdata = [
 ];
 
 const mainLinksMockdata2 = [
-  { icon: IconHome2, label: "Home", link: "../patient" },
+  { icon: IconHome2, label: "Personal Page", link: "../patient" },
   { icon: IconCalendar, label: "Appoinments", link: "../patient/makeappointment" },
   // { icon: IconCalendar, label: "Appoinments", link: "../patient/makeappointment" },
 ];
@@ -355,22 +375,23 @@ const DoubleNavbar2 = () => {
   ));
 
   return (
-    <Navbar height={750} width={{ sm: 300 }}>
+    <Navbar height={750} width={{ base: 60 }} >
       <Navbar.Section grow className={classes.wrapper}>
         <div className={classes.aside}>
           {mainLinks}
         </div>
         <div className={classes.main}>
-          <Title order={4} className={classes.title}>
+          {/* <Title order={4} className={classes.title}>
             {active}
           </Title>
           {active === "Appoinments" && linksAppoinments}
-          {active == "Home" && linksHome}
+          {active == "Home" && linksHome} */}
           {/* {linksPatient} */}
         </div>
       </Navbar.Section>
     </Navbar>
   );
 };
+
 
 export {DoubleNavbar, DoubleNavbar2};

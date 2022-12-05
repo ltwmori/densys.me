@@ -7,7 +7,7 @@ import {
     createStyles,
     Avatar,
     HoverCard,
-    Group,
+    Select,
     Center,
     Dialog,
     TextInput,
@@ -236,12 +236,33 @@ const useStyles = createStyles((theme) => ({
         justifyContent: 'space-between',
         // height: 50,
         width: 145
+    },
+
+    select: {
+        marginLeft:'1rem',
+        // marginTop: '2.3rem',
+        width: '20%'
+    },
+
+    container: {
+        marginTop:'-2.5rem',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+
+    searchbox: {
+        marginTop:'3rem',
+        display:'flex', 
+        flexDirection:'column',
+        alignItems:'center', 
+        width:'75%'
     }
   }));
 
 const MakeAppoinments = () => {
     const { classes, theme } = useStyles();
-    const [value, setValue] = useState('');
+    const [selectValue, setSelectValue] = useState('view all');
     const [searchValue, setSearchValue] = useState('');
     const [opened, setOpened] = useState(false);
     // const data =
@@ -258,9 +279,27 @@ const MakeAppoinments = () => {
 
     const items = mockdata.filter(
         function (e) {
-            if(searchValue == '') return e;
-            return new RegExp(searchValue, 'i').test(e.name) || new RegExp(searchValue, 'i').test(e.specialization);
-    })
+            console.log(selectValue)
+            if(searchValue == '' && (selectValue == 'view all'||selectValue == '')) {
+                return e;
+            } else if(searchValue == '' && selectValue != 'view all') {
+                return new RegExp(selectValue, 'i').test(e.specialization)
+            } else if(searchValue != '' && selectValue == 'view all') {
+                return new RegExp(searchValue, 'i').test(e.name) || new RegExp(searchValue, 'i').test(e.specialization);
+            } else if(searchValue != '' && selectValue != 'view all') {
+                return new RegExp(searchValue, 'i').test(e.name) 
+                && new RegExp(selectValue, 'i').test(e.specialization);
+            }
+    // }).filter(
+    //     function (e) {
+    //         if(searchValue != '' && selectValue != 'view all') {
+    //             // return new RegExp(searchValue, 'i').test(e.name) 
+    //             new RegExp(selectValue, 'i').test(e.specialization);
+    //         } else {
+    //             return e;
+    //         }
+        }
+    )
     // .filter(data => new RegExp(searchValue, 'i').test(data.name))
     .map((item) => (
         <Card shadow="sm" p="lg" radius="md" withBorder key={item.id} className={classes.item}>
@@ -349,32 +388,58 @@ const MakeAppoinments = () => {
     }
 
     return (
-        <div style={{display:'flex', flexDirection:'column',alignItems:'center'}}>
-            <Autocomplete 
-                className={classes.search}
-                value={searchValue}
-                onChange={value => setSearchValue(value)}
-                placeholder="Enter doctor name or specialization"
-                data={data}
-
-            />
-            {/* {console.log(searchValue)} */}
-            {items}
-
-            <Pagination
-                style={{margin:15}}
-                size="sm"
-                total={10}
-                position="center"
-                styles={(theme) => ({
-                    item: {
-                    '&[data-active]': {
-                        backgroundImage: theme.fn.gradient({ from: 'blue', to: 'blue' }),
-                    },
-                    },
-                })}
+        <div className={classes.container}>
+            <div className={classes.select}>
+                <Text fw={700} size="lg" mb="md">
+                    Make Appointment
+                </Text>
+                <Select 
+                    style={{marginTop:'1rem'}}
+                    defaultValue={'View All'} 
+                    // label="View Specialization Options"
+                    placeholder="View Specialization Options"
+                    data={[
+                        { value: 'anesthesiology', label: 'Anesthesiology' },
+                        { value: 'dermatology', label: 'Dermatology' },
+                        { value: 'neurology', label: 'Neurology' },
+                        { value: 'pediatrics', label: 'Pediatrics' },
+                        { value: 'psychiatry', label: 'Psychiatry' },
+                        { value: 'surgery', label: 'Surgery' },
+                        { value: 'pediatrics', label: 'Pediatrics' },
+                        { value: 'cardiology', label: 'Cardiology' },
+                        { value: 'view all', label: 'View All' },
+                    ]}
+                    onChange={(value) => setSelectValue(value)}
                 />
+            </div>
+            <div className={classes.searchbox} >
+                <Autocomplete clearable
+                    className={classes.search}
+                    value={searchValue}
+                    onChange={value => setSearchValue(value)}
+                    placeholder="Enter doctor name or specialization"
+                    data={data}
+
+                />
+                {/* {console.log(searchValue)} */}
+                {items}
+
+                {/* <Pagination
+                    style={{margin:15}}
+                    size="sm"
+                    total={10}
+                    position="center"
+                    styles={(theme) => ({
+                        item: {
+                        '&[data-active]': {
+                            backgroundImage: theme.fn.gradient({ from: 'blue', to: 'blue' }),
+                        },
+                        },
+                    })}
+                    /> */}
+            </div>
         </div>
+        
 
     );
 };
